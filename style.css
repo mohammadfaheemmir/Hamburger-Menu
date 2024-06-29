@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.5px;
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    background-size: cover;
+}
+
+.logo{
+    font-size: 40px;
+    padding: 40px;
+}
+
+.logo span{
+    color: red;
+}
+
+.navigation{
+    position: relative;
+
+}
+
+.navcheck-box{
+    display: none;
+}
+
+.nav-btn{
+    width: 60px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-background{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-image: radial-gradient(#4c0561,#003494);
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 1000;
+    transition: all 0.5 cubic-bezier(0.86,0.07,1);
+}
+
+.navbar{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg,#7f5a83 0%,#15598a 74%);
+    opacity: 0;
+    visibility: hidden;
+    width: 0 ;
+    transition: all 0.8s cubic-bezier(0.68,-0.55, 0.256, 1.55);
+
+}
+
+.nav-list{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.menu{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    padding: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+
+.menu:hover{
+    color: #a275f7;
+    transform: translateX(10px);
+}
+
+.navcheck-box:checked~.nav-background{
+    transform: scale(1.6);
+}
+
+.navcheck-box:checked~.navbar{
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+}
+
+.nav-icon{
+    position: relative;
+    margin-top: 35px;
+}
+
+.nav-icon,
+.nav-icon::before,
+.nav-icon::after{
+    width: 40px;
+    height: 3px;
+    background: #000;
+    display: inline-block;
+}
+
+.nav-icon::before,
+.nav-icon::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s;
+}
+
+.nav-icon::before{
+    top: -10px;
+
+}
+
+.nav-icon::after{
+    top: 10px;
+}
+
+.nav-btn:hover .nav-icon::before{
+    top: -12px;
+
+}
+
+.nav-btn:hover .nav-icon::after{
+    top: 12px;
+}
+
+.navcheck-box:checked+.nav-btn .nav-icon{
+    background: transparent;
+}
+
+.navcheck-box:checked +.nav-btn .nav-icon::before{
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.navcheck-box:checked +.nav-btn .nav-icon::after{
+    top: 0;
+    transform: rotate(-135deg);
+}
